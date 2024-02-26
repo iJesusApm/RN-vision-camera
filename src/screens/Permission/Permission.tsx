@@ -17,7 +17,6 @@ const PermissionsPage = () => {
   const requestCameraPermission = async () => {
     console.log('Requesting camera permission...')
     const permission = await Camera.requestCameraPermission()
-    console.log(`Camera permission status: ${permission}`)
 
     if (permission === 'denied') await Linking.openSettings()
     setCameraPermissionStatus(permission)
@@ -25,7 +24,6 @@ const PermissionsPage = () => {
 
   useEffect(() => {
     if (cameraPermissionStatus === 'granted') {
-      console.log({cameraPermissionStatus})
       navigation.reset({
         index: 0,
         routes: [{name: 'Camera' as never}],
