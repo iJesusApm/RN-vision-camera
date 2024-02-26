@@ -26,7 +26,10 @@ const PermissionsPage = () => {
   useEffect(() => {
     if (cameraPermissionStatus === 'granted') {
       console.log({cameraPermissionStatus})
-      // navigation.navigate('Camera')
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'Camera' as never}],
+      })
     }
   }, [cameraPermissionStatus, navigation])
 

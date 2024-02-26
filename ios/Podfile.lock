@@ -1125,7 +1125,7 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-  - RNReanimated (3.7.0):
+  - RNReanimated (3.7.1):
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
@@ -1369,13 +1369,13 @@ SPEC CHECKSUMS:
   Flipper-PeerTalk: 116d8f857dc6ef55c7a5a75ea3ceaafe878aadc9
   FlipperKit: 37525a5d056ef9b93d1578e04bc3ea1de940094f
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 79d13cd7c34b5d0cea5f4ca72c0e6b462ef8fb4d
-  hermes-engine: a0b0cc87b503fdc625d9db166035bde2af9f7058
+  glog: c5d68082e772fa1c511173d6b30a9de2c05a69a2
+  hermes-engine: b2669ce35fc4ac14f523b307aff8896799829fe2
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   MMKV: f902fb6719da13c2ab0965233d8963a59416f911
   MMKVCore: d26e4d3edd5cb8588c2569222cbd8be4231374e9
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  RCT-Folly: b0fb8ea7c0a672b8da19caf9e6c9e8e9aac047ec
+  RCT-Folly: 7169b2b1c44399c76a47b5deaaba715eeeb476c0
   RCTRequired: ab7f915c15569f04a49669e573e6e319a53f9faa
   RCTTypeSafety: 63b97ced7b766865057e7154db0e81ce4ee6cf1e
   React: 1c87497e50fa40ba9c54e5ea5e53483a0f8eecc0
@@ -1420,7 +1420,7 @@ SPEC CHECKSUMS:
   ReactCommon: 840a955d37b7f3358554d819446bffcf624b2522
   RNCMaskedView: 090213d32d8b3bb83a4dcb7d12c18f0152591906
   RNGestureHandler: deda62b8339496ba721a45e0f3e2d7a319932cee
-  RNReanimated: 7d6d32f238f914f13d9d6fb45c0aef557f7f901e
+  RNReanimated: beb07f7f900543928467da8107c175d1e57a1049
   RNScreens: b582cb834dc4133307562e930e8fa914b8c04ef2
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   VisionCamera: 7a5c87805b13adaaa557132b44879ed1e1e39786

@@ -1,10 +1,8 @@
-import type { StackScreenProps } from '@react-navigation/stack';
+import type {StackScreenProps} from '@react-navigation/stack'
 
 export type ApplicationStackParamList = {
-	Startup: undefined;
-	Example: undefined;
-	Permission: undefined;
-};
+  Permission: undefined
+  Camera: undefined
+}
 
-export type ApplicationScreenProps =
-	StackScreenProps<ApplicationStackParamList>;
+export type ApplicationScreenProps = StackScreenProps<ApplicationStackParamList>
