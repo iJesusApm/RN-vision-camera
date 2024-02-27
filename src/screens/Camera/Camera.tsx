@@ -10,7 +10,6 @@ import {SafeScreen} from '@/components/template'
 import {useTheme} from '@/theme'
 import {useIsFocused, useNavigation} from '@react-navigation/native'
 import {useIsForeground} from '@/hooks/useIsForeground'
-import Carrousel from '@/components/molecules/Carrousel/Carrousel'
 
 const CameraScreen = () => {
   const [cameraPosition, setCameraPosition] = useState<'front' | 'back'>('back')
@@ -41,6 +40,10 @@ const CameraScreen = () => {
   ])
 
   const fps = Math.min(format?.maxFps ?? 1, targetFps)
+  const supportsFlash = device?.hasFlash ?? false
+  const supportsHdr = format?.supportsPhotoHdr
+  const supports60Fps = useMemo(() => device?.formats.some(f => f.maxFps >= 60), [device?.formats])
+  const canToggleNightMode = device?.supportsLowLightBoost ?? false
   const isEnabled = isCameraInitialized && isActive
 
   const onInitialized = useCallback(() => {
@@ -109,28 +112,36 @@ const CameraScreen = () => {
             <IonIcon name="camera-reverse" color="white" size={24} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={[components.rightButton, gutters.marginTop_32]} onPress={onFlashPressed}>
-            <IonIcon name={flash === 'on' ? 'flash' : 'flash-off'} color="white" size={24} />
-          </TouchableOpacity>
+          {supportsFlash && (
+            <TouchableOpacity style={[components.rightButton, gutters.marginTop_32]} onPress={onFlashPressed}>
+              <IonIcon name={flash === 'on' ? 'flash' : 'flash-off'} color="white" size={24} />
+            </TouchableOpacity>
+          )}
 
-          <TouchableOpacity
-            style={[components.rightButton, gutters.marginTop_32]}
-            onPress={() => setEnableHdr(h => !h)}>
-            <MaterialIcon name={enableHdr ? 'hdr' : 'hdr-off'} color="white" size={40} />
-          </TouchableOpacity>
+          {supportsHdr && (
+            <TouchableOpacity
+              style={[components.rightButton, gutters.marginTop_32]}
+              onPress={() => setEnableHdr(h => !h)}>
+              <MaterialIcon name={enableHdr ? 'hdr' : 'hdr-off'} color="white" size={40} />
+            </TouchableOpacity>
+          )}
 
-          <TouchableOpacity
-            style={[components.rightButton, gutters.marginTop_32]}
-            onPress={() => setTargetFps(t => (t === 30 ? 60 : 30))}>
-            <Text style={[fonts.size_12, fonts.gray50, fonts.bold, fonts.uppercase]}>{`${targetFps}\nFPS`}</Text>
-          </TouchableOpacity>
+          {supports60Fps && (
+            <TouchableOpacity
+              style={[components.rightButton, gutters.marginTop_32]}
+              onPress={() => setTargetFps(t => (t === 30 ? 60 : 30))}>
+              <Text style={[fonts.size_12, fonts.gray50, fonts.bold, fonts.uppercase]}>{`${targetFps}\nFPS`}</Text>
+            </TouchableOpacity>
+          )}
 
-          <TouchableOpacity
-            style={[components.rightButton, gutters.marginTop_32]}
-            onPress={() => setEnableNightMode(!enableNightMode)}
-            disabled={!isEnabled}>
-            <IonIcon name={enableNightMode ? 'moon' : 'moon-outline'} color="white" size={24} />
-          </TouchableOpacity>
+          {canToggleNightMode && (
+            <TouchableOpacity
+              style={[components.rightButton, gutters.marginTop_32]}
+              onPress={() => setEnableNightMode(!enableNightMode)}
+              disabled={!isEnabled}>
+              <IonIcon name={enableNightMode ? 'moon' : 'moon-outline'} color="white" size={24} />
+            </TouchableOpacity>
+          )}
         </View>
 
         <View style={[layout.absolute, layout.itemsCenter, layout.bottom0, layout.fullWidth, gutters.marginBottom_80]}>

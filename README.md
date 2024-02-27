@@ -10,6 +10,8 @@ The project contains the image capture and its respective saving in the local ga
 - Modify FPS (30/60)
 - In addition, it requires permissions to use the camera and read files in the gallery.
 
+NOTE: Each of the above options has its validation if the device can opt for the functionality and grants the corresponding permissions.
+
 ## Screens Previews
 
 <table style="border: 0">
