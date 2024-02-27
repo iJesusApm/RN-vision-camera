@@ -2,7 +2,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import {NavigationContainer} from '@react-navigation/native'
 import {Camera} from 'react-native-vision-camera'
 
-import {Permission, Camera as CameraScreen} from '@/screens'
+import {Permission, Camera as CameraScreen, Media} from '@/screens'
 import {useTheme} from '@/theme'
 
 import type {ApplicationStackParamList} from '@/types/navigation'
@@ -12,9 +12,6 @@ const Stack = createStackNavigator<ApplicationStackParamList>()
 function ApplicationNavigator() {
   const {variant, navigationTheme} = useTheme()
   const cameraPermission = Camera.getCameraPermissionStatus()
-
-  console.log(`Re-rendering Navigator. Camera: ${cameraPermission}`)
-
   const showPermissionsPage = cameraPermission !== 'granted'
 
   return (
@@ -25,6 +22,7 @@ function ApplicationNavigator() {
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="Permission" component={Permission} />
         <Stack.Screen name="Camera" component={CameraScreen} />
+        <Stack.Screen name="Media" component={Media} />
       </Stack.Navigator>
     </NavigationContainer>
   )

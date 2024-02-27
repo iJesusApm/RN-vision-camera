@@ -8,7 +8,7 @@ import {Brand} from '@/components/molecules'
 import {SafeScreen} from '@/components/template'
 import {useTheme} from '@/theme'
 
-const PermissionsPage = () => {
+const PermissionScreen = () => {
   const [cameraPermissionStatus, setCameraPermissionStatus] = useState<CameraPermissionStatus>('not-determined')
   const {layout, gutters, fonts, components, backgrounds} = useTheme()
 
@@ -64,4 +64,4 @@ const PermissionsPage = () => {
   )
 }
 
-export default PermissionsPage
+export default PermissionScreen
