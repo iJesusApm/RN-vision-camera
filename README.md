@@ -1,6 +1,22 @@
 # Demo Test - Vision Camera Plugin from React Native
 
 This project is a [React Native](https://facebook.github.io/react-native/) mobile application.
+The project contains the image capture and its respective saving in the local gallery.
+
+- Enable/Disable Camera Flash
+- Front camera change
+- Activate/Deactivate Night Mode
+- Activate/Deactivate HDR
+- Modify FPS (30/60)
+- In addition, it requires permissions to use the camera and read files in the gallery.
+
+## Screens Previews
+
+<table style="border: 0">
+  <tr>
+    <td align="center"><img src="files/review.gif" /></td>
+  </tr>
+</table>
 
 ## Requirements
 
