@@ -13,6 +13,7 @@
     "pod-install": "cd ios && RCT_NEW_ARCH_ENABLED=1 bundle exec pod install && cd .."
   },
   "dependencies": {
+    "@react-native-camera-roll/camera-roll": "^7.4.2",
     "@react-native-masked-view/masked-view": "^0.3.0",
     "@react-navigation/native": "^6.1.10",
     "@react-navigation/stack": "^6.3.21",

@@ -1,13 +1,13 @@
 import React, {useCallback, useMemo, useState} from 'react'
 import {StyleSheet, View, ActivityIndicator, PermissionsAndroid, Platform, Alert, TouchableOpacity} from 'react-native'
+import FastImage, {OnLoadEvent} from 'react-native-fast-image'
 
 import type {StackScreenProps} from '@react-navigation/stack'
 import {ApplicationStackParamList} from '@/types/navigation'
 
 import {useNavigation} from '@react-navigation/native'
-import FastImage, {OnLoadEvent} from 'react-native-fast-image'
-// import {CameraRoll} from '@react-native-camera-roll/camera-roll'
 import IonIcon from 'react-native-vector-icons/Ionicons'
+import {savePicture} from '@/hooks/useCameraRoll'
 
 const requestSavePermission = async (): Promise<boolean> => {
   // On Android 13 and above, scoped storage is used instead and no permission is needed
@@ -59,9 +59,7 @@ const MediaScreen = ({route}: Props) => {
         setSavingState('none')
         return
       }
-      //   await CameraRoll.save(`file://${path}`, {
-      //     type: type,
-      //   })
+      await savePicture(`file://${path}`, type)
       setSavingState('saved')
     } catch (e) {
       const message = e instanceof Error ? e.message : JSON.stringify(e)
